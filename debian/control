@@ -1,8 +1,8 @@
 Source: alsa-plugins
 Section: libs
 Priority: optional
-Maintainer: Deepin Developer <deepin-dev@deepin.org>
-Uploaders: Deepin Packages Builder <packages@deepin.org>
+Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>,
            Elimar Riesebieter <riesebie@lxtec.de>,
            Luke Yelavich <themuso@ubuntu.com>
 Build-Depends: debhelper-compat (= 13),
@@ -15,10 +15,10 @@ Build-Depends: debhelper-compat (= 13),
                libsamplerate0-dev | libsamplerate-dev,
                libspeexdsp-dev,
                libswresample-dev
-Standards-Version: 4.6.0
+Standards-Version: 4.7.0
 Homepage: https://www.alsa-project.org/
-#Vcs-Git
-#Vcs-Browser
+Vcs-Git: https://salsa.debian.org/alsa-team/alsa-plugins.git
+Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-plugins
 Rules-Requires-Root: no
 
 Package: libasound2-plugins
@@ -26,9 +26,12 @@ Architecture: linux-any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Conflicts: libasound2-plugins-extra
+Replaces: libasound2-plugins-extra
+Provides: libasound2-plugins-extra
 Description: ALSA library additional plugins
  This package contains plugins for the ALSA library that are
- not included in the main libasound2 package.
+ not included in the main libasound2t64 package.
  .
  The following plugins are included, among other:
    - a52: S16 to A52 stream converter
